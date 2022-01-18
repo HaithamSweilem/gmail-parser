@@ -1,0 +1,5 @@
+!.gitignore
+vendor
+.idea/
+token.json
+credentials.json

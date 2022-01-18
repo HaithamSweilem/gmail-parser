@@ -1,0 +1,30 @@
+{
+    "name": "haitham/gmail-parser",
+    "description": "Gmail parser",
+    "type": "library",
+    "keywords": ["gmail", "parse", "email", "stat"],
+    "license": "MIT",
+    "homepage": "https://github.com/HaithamSweilem/gmail-parser",
+    "authors": [
+        {
+            "name": "Haitham Sweilem",
+            "email": "haitham.sweilem@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "cache/filesystem-adapter": "^1.1",
+        "google/apiclient": "^2.12",
+        "php-amqplib/php-amqplib": ">=3.0"
+    },
+    "scripts": {
+        "script-auth" : "php ./app/web-auth -S localhost:8080",
+        "script-fetch" : "php ./app/jobs/MessageFetcher.php",
+        "script-parse" : "php ./app/jobs/MessageParser.php",
+
+        "auth" : "composer run script-auth --timeout 0",
+        "fetch" : "composer run script-fetch --timeout 0",
+        "parse" : "composer run script-parse --timeout 0"
+    }
+}
